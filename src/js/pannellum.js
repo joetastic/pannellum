@@ -1511,6 +1511,13 @@ function createHotSpots() {
                 div.style.cursor = 'pointer';
                 span.style.cursor = 'pointer';
                 a.appendChild(div);
+            } else if (hs.onclick) {
+                a = document.createElement('a');
+                a.onclick = hs.onclick;
+                renderContainer.appendChild(a);
+                div.style.cursor = 'pointer';
+                span.style.cursor = 'pointer';
+                a.appendChild(div);
             } else {
                 if (hs.sceneId) {
                     div.onclick = function() {
