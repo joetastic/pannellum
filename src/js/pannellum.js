@@ -170,6 +170,7 @@ controls.zoom.appendChild(controls.zoomIn);
 controls.zoomOut = document.createElement('div');
 controls.zoomOut.className = 'pnlm-zoom-out pnlm-sprite pnlm-control';
 controls.zoomOut.addEventListener('click', zoomOut);
+controls.zoom.style.display = 'none';
 controls.zoom.appendChild(controls.zoomOut);
 controls.container.appendChild(controls.zoom);
 
@@ -177,6 +178,7 @@ controls.container.appendChild(controls.zoom);
 controls.fullscreen = document.createElement('div');
 controls.fullscreen.addEventListener('click', toggleFullscreen);
 controls.fullscreen.className = 'pnlm-fullscreen-toggle-button pnlm-sprite pnlm-fullscreen-toggle-button-inactive pnlm-controls pnlm-control';
+controls.fullscreen.style.display = 'none';
 if (document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled)
     controls.container.appendChild(controls.fullscreen);
 
@@ -1707,28 +1709,6 @@ function processOptions() {
                     init();
                 }
                 break;
-            
-            case 'showZoomCtrl':
-                if (config[key]) {
-                    // Show zoom controls
-                    controls.zoom.style.display = 'block';
-                } else {
-                    // Hide zoom controls
-                    controls.zoom.style.display = 'none';
-                }
-                break;
-
-            case 'showFullscreenCtrl':
-                if (config[key] && ('fullscreen' in document || 'mozFullScreen' in document ||
-                    'webkitIsFullScreen' in document || 'msFullscreenElement' in document)) {
-                    
-                    // Show fullscreen control
-                    controls.fullscreen.style.display = 'block';
-                } else {
-                    // Hide fullscreen control
-                    controls.fullscreen.style.display = 'none';
-                }
-                break;
         }
       }
     }
@@ -1841,6 +1821,8 @@ function load() {
     // memory etc and not because of a lack of WebGL support etc
     clearError();
 
+    controls.zoom.style.display = 'block';
+    controls.fullscreen.style.display = 'block';
     controls.load.style.display = 'none';
     infoDisplay.load.box.style.display = 'inline';
     init();
