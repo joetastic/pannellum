@@ -156,7 +156,7 @@ container.appendChild(controls.container);
 // Load button
 controls.load = document.createElement('div');
 controls.load.className = 'pnlm-load-button';
-controls.load.innerHTML = '<p>Click to<br>Load<br>Panorama<p>';
+controls.load.innerHTML = '<p>Click to<br>view<p>';
 controls.load.addEventListener('click', load);
 container.appendChild(controls.load);
 
